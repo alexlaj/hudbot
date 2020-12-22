@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const messageHandler = require("./messageHandler.js");
+const messageHandler = require("./src/messageHandler.js");
 const { exit } = require("process");
 
 const client = new Discord.Client();
