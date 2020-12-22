@@ -1,0 +1,27 @@
+{
+  "name": "hudbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "jest ./src/**/*.test.js",
+    "start": "node bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexlaj/hudbot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexlaj/hudbot/issues"
+  },
+  "homepage": "https://github.com/alexlaj/hudbot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.0"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1"
+  }
+}
