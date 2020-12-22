@@ -1,8 +1,7 @@
 const Command = require("./Command/Command");
 
 const messageHandler = (message) => {
-  const { content } = message;
-  const command = new Command(content);
+  const command = new Command(message.content);
 
   if (!command.isReplyable()) {
     return;
@@ -13,7 +12,9 @@ const messageHandler = (message) => {
     return;
   }
 
-  command.perform();
+  const { verb, item } = command.parameterizedCommand();
+
+  return message.reply(`verb: ${verb}\nitem: ${item}`);
 };
 
 module.exports = messageHandler;

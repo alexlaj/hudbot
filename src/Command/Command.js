@@ -27,11 +27,6 @@ class Command {
       item: this.message.match(regex)[2],
     };
   }
-
-  perform() {
-    const { verb, item } = this.message;
-    this.message.reply(`verb: ${verb}\nitem: ${item}`);
-  }
 }
 
 module.exports = Command;
