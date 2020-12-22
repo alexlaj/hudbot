@@ -1,3 +1,5 @@
+const Command = require("./Command/Command");
+
 const messageHandler = (message) => {
   const { content } = message;
   const command = new Command(content);

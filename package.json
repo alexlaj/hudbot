@@ -4,7 +4,7 @@
   "description": "",
   "main": "bot.js",
   "scripts": {
-    "test": "jest ./src/**/*.test.js",
+    "test": "jest",
     "start": "node bot.js"
   },
   "repository": {
