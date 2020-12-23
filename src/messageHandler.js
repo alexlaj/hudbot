@@ -16,7 +16,7 @@ const messageHandler = (message, pgClient) => {
 
   if (verb == Command.ADD) {
     pgClient
-      .query(`INSERT INTO list_items (item) VALUES ('%{item}')`)
+      .query(`INSERT INTO list_items (item) VALUES ('${item}')`)
       .then((result) => {
         message.react("✔️");
       });
