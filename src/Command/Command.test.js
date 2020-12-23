@@ -1,3 +1,4 @@
+const { expect } = require("@jest/globals");
 const Command = require("./Command");
 
 describe("Command", () => {
@@ -29,7 +30,19 @@ describe("Command", () => {
     });
   });
 
-  describe("parameterizedCommand", () => {});
+  describe("parameterizedCommand", () => {
+    it("returns the correct verb", () => {
+      cmd = new Command("hudbot please add this thing");
+
+      expect(cmd.parameterizedCommand().verb).toEqual("add");
+    });
+
+    it("returns the correct item", () => {
+      cmd = new Command("hudbot please add this thing");
+
+      expect(cmd.parameterizedCommand().item).toEqual("this thing");
+    });
+  });
 
   describe("perform", () => {});
 });

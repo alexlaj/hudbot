@@ -21,7 +21,7 @@ class Command {
   }
 
   parameterizedCommand() {
-    const regex = `^${Command.PREFIX} (add|remove|list) .+`;
+    const regex = `^${Command.PREFIX} (add|remove|list) (.+)`;
     return {
       verb: this.message.match(regex)[1],
       item: this.message.match(regex)[2],
