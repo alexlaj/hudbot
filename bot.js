@@ -1,14 +1,22 @@
 const Discord = require("discord.js");
 const messageHandler = require("./src/messageHandler.js");
 const { exit } = require("process");
+const pg = require("pg");
 
-const client = new Discord.Client();
+const pgClient = new pg.Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
+pgClient.connect();
+const discordClient = new Discord.Client();
 
-client.on("ready", () => {
-  console.log("hudbot is ready for action");
+discordClient.on("ready", () => {
+  console.log("🚀 H U D B O T is ready for action 🚀");
 });
 
-client.on("message", (message) => messageHandler(message));
+discordClient.on("message", (message) => messageHandler(message, pgClient));
 
 if (!process.env.BOT_TOKEN) {
   console.error(
@@ -17,4 +25,4 @@ if (!process.env.BOT_TOKEN) {
   exit(1);
 }
 
-client.login(process.env.BOT_TOKEN);
+discordClient.login(process.env.BOT_TOKEN);
