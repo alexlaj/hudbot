@@ -15,9 +15,11 @@ const messageHandler = (message, pgClient) => {
   const { verb, item } = command.parameterizedCommand();
 
   if (verb == Command.ADD) {
-    pgClient.query(
-      `INSERT INTO list_items (list_id, item) VALUES (NULL, '%{item}')`
-    );
+    pgClient
+      .query(`INSERT INTO list_items (item) VALUES ('%{item}')`)
+      .then((result) => {
+        message.react("✔️");
+      });
   }
 
   return message.reply(`verb: ${verb}\nitem: ${item}`);
